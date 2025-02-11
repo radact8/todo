@@ -1,0 +1,7 @@
+{% extends "index.html" %}
+{% block contents %}
+{% for task in tasks %}
+
+{% endfor %}
+<a href="{{ url_for('index')}}">戻る</a>
+{% endblock %}

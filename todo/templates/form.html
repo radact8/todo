@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block contents %}
+{% for i in range(size) %}
+        <tr>
+            <form method="post" name="add{{i}}" action="/add{{ i }}">
+                <td>
+                    <input name="add{{ i }}" type="text" size="10">
+                </td>
+                <td>
+                    <input type="submit" value="入力">
+                </td>
+            </form>
+        </tr>
+{% endfor %}
+<a href="{{ url_for('index')}}">戻る</a>
+{% endblock %}

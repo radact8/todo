@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST"  name="myForm">
+        <input type="text" name="username" placeholder="Enter your name">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        var formName = event.target.name;  // フォームのname属性を取得
+        var username = document.querySelector('input[name="username"]').value;
+        console.log(formName);
+        // Ajaxを使ってサーバーにフォーム名を送信することができます
+        fetch('/submit_test', {
+            method: 'POST',
+            body: new URLSearchParams({
+                formName: formName,
+            })
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block contents %}
+<table border="1">
+    <tr>
+        <td>
+            today
+        </td>
+    </tr>
+    {% for i in range(size) %}
+        <tr>
+            <form method="post" name="name{{i}}" action="/check{{i}}">
+                <td>
+                    {{ task_name[i].name }}
+                </td>
+                <td>
+                    <select name="name{{i}}" id="">
+                        <option value="">未入力</option>
+                        <option value="o">〇</option>
+                        <option value="x">×</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="submit" value="入力">
+                </td>
+            </form>
+        </tr>
+    {% endfor %}
+</table>
+<a href="{{ url_for('form') }}">タスク入力</a>
+<form method="post" action="{{ url_for('test')}}">
+    <input type="submit" value="確認">
+</form>
+{% endblock %}
